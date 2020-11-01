@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
+from django.http import Http404
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -29,6 +33,7 @@ def contacto(request):
 
     return render(request, 'PGamersApp/contacto.html', data)
 
+@login_required
 def agregar_pedido(request):
     data = {
         'form' : PedidoForm
@@ -45,15 +50,27 @@ def agregar_pedido(request):
 
     return render(request, 'Pedido/agregar.html', data)
 
+@login_required
 def listar_pedidos(request):
     pedidos = Pedido.objects.all()
+    #se recogue el numero de paginas desde la url
+    page = request.GET.get('page', 1)
+
+    #se usa try por posibles errores y caida del sistema
+    try:
+        paginator = Paginator(pedidos, 5) # cantidad de paginas que se requieren por pagina
+        pedidos = paginator.page(page) # entrega de la pagina
+    except:
+        raise Http404
 
     data = {
-        'pedidos' : pedidos
+        'entity' : pedidos,
+        'paginator': paginator
     }
 
     return render(request, 'Pedido/listar.html', data)
 
+@login_required
 def modificar_pedido(request, id):
     
     #busca el id obtenido en la url
@@ -74,6 +91,7 @@ def modificar_pedido(request, id):
 
     return render(request, 'Pedido/modificar.html', data)
 
+@login_required
 def eliminar_pedido(request, id):
     pedido = get_object_or_404(Pedido, id=id)
     pedido.delete()
@@ -81,14 +99,18 @@ def eliminar_pedido(request, id):
     return redirect(to='listar_pedido')
 
 def registro(request):
+    data ={
+        'form': CustomUserCreationForm()
+    }
+
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            messages.success(request, f'Usuario {username} creado')
-    else:
-        form = UserRegisterForm()
-        
-    context = { 'form': form }
-    return redirect(to='inicio')
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data['username'], password = formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, 'Te has registrado correctamente!')
+            #redirigir al inicio
+            return redirect(to="inicio")
+        data['form'] = formulario
+    return render(request, 'registration/registro.html', data)

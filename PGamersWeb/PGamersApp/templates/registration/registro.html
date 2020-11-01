@@ -5,27 +5,44 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="contenedor-form">
-        <form action="" method="POST">
 
-        <h1> Registro ProductG </h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class= "container">
+		<div class="row">
+			<div class="col-12 col-md-6 offset-md-3">
+				<div class="card" style="padding: 20px;">
+					<div class="card-body">
+						<h2>Registro de usuario</h2>
 
-        <hr>
+						<form action="" method="POST">
 
-        {% csrf_token %}
-        {{ form | crispy}}
+							{% csrf_token %}
+							{{ form | crispy }}
 
-
-        <button type="submit" class="btn btn-success float-right">Registrar</button>
-        </form> 
-        <br>
-    </div>
-    <br>
-    <br>
-    <br>
+							<a href="{% url 'inicio' %}">Inicio</a> |
+                            <a href="{% url 'login' %}">Login</a>
+							<input type="submit" value="Registrar" class="btn btn-success float-right">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
 {% endblock %}

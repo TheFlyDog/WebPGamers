@@ -52,7 +52,7 @@
                     <th>Opciones</th>
                 </tr>
 
-                {% for p in pedidos %}
+                {% for p in entity %}
 
                 <tr>
                     <td>{{ p.rut | title }}</td>
@@ -71,6 +71,10 @@
                 {% endfor %}
                 
             </table>
+
+            <div>
+                {% include 'Pedido/paginator.html' %}
+            </div>
         </div>
     </div>
     <br>

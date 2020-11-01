@@ -16,7 +16,8 @@ class PedidoForm(forms.ModelForm):
         model = Pedido
         fields = ['rut','nombres', 'a_paterno', 'a_materno', 'correo', 'producto']
     
-class UserRegisterForm(UserCreationForm):
+class CustomUserCreationForm(UserCreationForm):
+    
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2' ]
+        fields = ['username', 'first_name', 'last_name','email','password1','password2']

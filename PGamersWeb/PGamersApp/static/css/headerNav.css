@@ -1,14 +1,15 @@
-header{
+header {
     width: 100%;
-    background: linear-gradient(to right, rgba(97,67,133,1) 0%, rgba(81,99,149,1) 100%);
+    background: linear-gradient(to right, rgba(97, 67, 133, 1) 0%, rgba(81, 99, 149, 1) 100%);
     position: relative;
     top: 70px;
 }
-nav{
+
+nav {
     width: 100%;
     height: 70px;
     max-height: 70px;
-    background: rgb(47,79,79);
+    background: rgb(47, 79, 79);
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +19,8 @@ nav{
     align-items: center;
     z-index: 10;
 }
-nav .xlogo{
+
+nav .xlogo {
     width: 70px;
     height: 70px;
     display: grid;
@@ -28,20 +30,21 @@ nav .xlogo{
     color: #fff;
     margin-left: 10px;
 }
-nav .xlogo .xhome-link{
+
+nav .xlogo .xhome-link {
     width: 70px;
     height: 70px;
     margin-top: 10px;
 }
-nav .xlogo a img{
+
+nav .xlogo a img {
     width: 90%;
 }
 
-
-nav .xbar{
+nav .xbar {
     position: fixed;
-    top:70px;
-    left: -120%;
+    top: 70px;
+    left: -90%;
     width: 100%;
     height: 100vh;
     background: transparent;
@@ -49,7 +52,8 @@ nav .xbar{
     display: flex;
     flex-direction: column;
 }
-nav .xbar .xbar-item{
+
+nav .xbar .xbar-item {
     background: #234141;
     padding: 15px 0;
     text-align: center;
@@ -57,12 +61,13 @@ nav .xbar .xbar-item{
     color: #ddd;
     transition: all .5s ease;
 }
-nav .xbar .xbar-item:hover{
+
+nav .xbar .xbar-item:hover {
     text-decoration: none;
     background: #1C5151;
 }
 
-nav #xresponsive-menu{
+nav #xresponsive-menu {
     width: 60px;
     height: 60px;
     background: transparent;
@@ -73,36 +78,38 @@ nav #xresponsive-menu{
     font-size: 2em;
     transition: all .5s ease;
 }
-nav #xresponsive-menu:hover{
+
+nav #xresponsive-menu:hover {
     color: #C0C0C0;
     border-color: #C0C0C0;
     cursor: pointer;
 }
 
-@media (min-width: 768px){
-    #xresponsive-menu{
+@media (min-width: 1300px) {
+    #xresponsive-menu {
         display: none;
     }
-    header{
+    header {
         top: 0;
     }
-
-    nav .xbar{
+    nav .xbar {
         position: static;
         width: 100%;
         height: 70px;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         grid-auto-rows: 70px;
     }
-    nav .xbar .xbar-item{
+    nav .xbar .xbar-item {
         padding: 0 0;
         font-size: 1.3em;
         display: flex;
         background: transparent;
     }
-    nav .xbar .xbar-item:hover{background: transparent;}
-    nav .xbar .xbar-item .xbar-box{
+    nav .xbar .xbar-item:hover {
+        background: transparent;
+    }
+    nav .xbar .xbar-item .xbar-box {
         width: 100%;
         height: 70px;
         background: transparent;
@@ -113,8 +120,8 @@ nav #xresponsive-menu:hover{
         border-bottom: 3px solid transparent;
         transition: all .5s ease;
     }
-    nav .xbar .xbar-item .xbar-box:hover{
-        background: rgba(255,255,255,.1);
+    nav .xbar .xbar-item .xbar-box:hover {
+        background: rgba(255, 255, 255, .1);
         border-color: #fff;
     }
 }

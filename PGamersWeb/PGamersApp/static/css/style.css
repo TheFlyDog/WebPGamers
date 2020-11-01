@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 body {
@@ -99,63 +100,4 @@ body {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
-}
-
-
-/** Formularios **/
-
-.contenedor-form {
-    width: 50%!important;
-    margin: auto;
-    padding: 50px 50px 120px 50px;
-    background-color: black;
-}
-
-.contenedor-form input {
-    display: block!important;
-    width: 100%;
-    margin: 0 0 10px 0!important;
-    padding: 10px;
-    border: 2px solid black;
-}
-
-.contenedor-form p,
-li {
-    color: white;
-}
-
-.contenedor-form label {
-    color: white;
-    margin-bottom: 15px;
-}
-
-.contenedor-form button[type="submit"] {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 15px 0;
-    align-items: center!important;
-    text-align: center;
-    width: 100%!important;
-    color: black;
-    background: rgb(0, 195, 255);
-    font-weight: bolder;
-    text-transform: uppercase;
-    font-size: 20px;
-    color: white;
-}
-
-.contenedor-form button[type="submit"]:hover {
-    background-color: rgb(8, 218, 18);
-    color: black;
-}
-
-.contenedor-form h1 {
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.contenedor-form hr {
-    border: 1px solid white;
-    margin: 40px 0;
 }
