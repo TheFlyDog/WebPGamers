@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flex-slider.css' %}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    {% block css%}
+
+    {% endblock %}
+</head>
+<body>
+    
+    <header>
+        <nav id="nav">
+            <div class="xlogo">
+                <a href="{% url 'inicio' %}" class="xhome-link">
+                    <img src="{% static 'img/xlogo.png' %}" alt="logo">
+                </a>
+                <h1>Empresa</h1>
+            </div>
+
+            <div class="xbar" id="xbar">
+                <a href="{% url 'contacto' %}" class="xbar-item">
+                    <div class="xbar-box">Contacto</div>
+                </a>
+                <a href="{% url 'agregar_pedido' %}" class="xbar-item">
+                    <div class="xbar-box">Pedidos</div>
+                </a>
+                <a href="{% url 'listar_pedido' %}" class="xbar-item">
+                    <div class="xbar-box">Listado</div>
+                </a>
+                <a href="{% url 'registro' %}" class="xbar-item">
+                    <div class="xbar-box">Registro</div>
+                </a>
+                <a href="{% url 'login' %}" class="xbar-item">
+                    <div class="xbar-box">Login</div>
+                </a>
+            </div>
+
+            <button type="button" id="xresponsive-menu"><span class="icon-menu"></span></button>
+        </nav>
+    </header>
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+
+    <footer class="container-fluid p-0">
+        <div class="container text-justify">
+            <div class="xfoot-content">
+                <h3>PGamers</h3>
+
+                <div class="xsocial">
+                    <a href="/"><span class="icon-facebook"></span></a>
+                    <a href="/"><span class="icon-twitter"></span></a>
+                    <a href="/"><span class="icon-instagram"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3 xcopy">© 2019 Copyright
+            <a href="https://mdbootstrap.com/education/bootstrap/"></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.flexslider.js' %}"></script>
+    <script srC="{% static 'js/sliderOptions.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    {% if messages %}
+            {% for m in messages%}
+               <script>
+                    Swal.fire({
+                        "title" : "Felicitaciones",
+                        "text" : "{{m}}",
+                        "icon" : "success"
+                    })
+               </script>
+            {% endfor %}
+    {% endif %}
+    
+    {% block js %}
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'PGamersApp/base.html'%}
+
+{% load static %}
+
+{% block css%}
+    
+{% endblock %}
+
+{% block js %}
+    
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="{% static 'img/imagen_slider_1.png/' %}" alt="" class="img-fluid"/>
+                </li>
+                <li>
+                    <img src="{% static 'img/imagen_slider_2.png/' %}" alt="" class="img-fluid"/>
+                </li>
+                <li>
+                    <img src="{% static 'img/imagen_slider_3.png/' %}" alt="" class="img-fluid"/>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <br>
+    
+    <hr style="border: 2px solid black; margin: 20px 0;">
+
+    <br>
+
+    {% load humanize %}
+
+    <h1 style="text-align: center; margin-bottom: 50px;"> -> Nuestros Productos <- <h1>
+
+    <div id="contenido">
+        <div class="productos">
+            {% for p in productos %}
+                <div class="producto">
+
+                    <div class="contenedor_producto">
+                        {% if p.imagen %}
+                        <img src="{{ p.imagen.url }}" alt="imagen producto">
+                        {% endif %}
+                        <div class="detalle">
+                            <h5>{{ p.marca | capfirst }}</h5>
+                            <h2>{{ p.nombre | title }}</h2>
+                            <h3>${{ p.precio | intcomma }}</h3>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr style="border: 2px solid black; margin: 50px 0;">
+    <br>
+    <br>
+    <br>
+{% endblock %}

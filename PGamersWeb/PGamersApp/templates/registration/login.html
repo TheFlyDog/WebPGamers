@@ -1,0 +1,44 @@
+{% extends "PGamersApp/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+		{% if form.errors %}
+        <div class="alert alert-danger" role="alert">Tu usuario y contraseña no coinciden. Intenta nuevamente.</div>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>Tu cuenta no tiene acceso a esta página. Para proceder, por favor logueate con una cuenta que tenga este acceso.</p>
+        {% else %}
+        <div class="alert alert-warning" role="alert">
+            Por favor <strong>inicia sesión</strong> para ver esta página
+          </div>
+        {% endif %}
+        {% endif %}
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="contenedor-form">
+			<form action="" method="POST">
+
+			<h1> Login ProductG </h1>
+
+			<hr>
+			
+			{% csrf_token %}
+			{{ form | crispy}}
+
+			<button type="submit" class="btn btn-success float-right">Ingresar</button>
+			</form> 
+			<br>
+		</div>
+		<br>
+		<br>
+		<br>
+{% endblock %}
