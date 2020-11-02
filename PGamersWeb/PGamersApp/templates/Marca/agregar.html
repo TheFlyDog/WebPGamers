@@ -8,6 +8,10 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="card">
@@ -20,12 +24,12 @@
 
                         <hr>
                         <div class="d-flex justify-content-end">
-                            <a href="{% url 'productos' %}" class="btn btn-secondary">Cancelar</a>
+                            <a href="{% url 'marcas' %}" class="btn btn-secondary">Volver</a>
                             &nbsp;
-                            <input type="submit" value="Modificar" class="btn btn-primary">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
                         </div>
-                        {{m}}
                     </form>
+                    {{ mensaje }}
                 </div>
             </div>
         </div>
@@ -38,6 +42,9 @@
     <br>
     <br>
     <br>
-
+    <br>
+    <br>
+    <br>
+    <br>
 
 {% endblock %}

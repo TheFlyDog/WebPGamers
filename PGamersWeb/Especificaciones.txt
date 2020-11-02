@@ -1,0 +1,43 @@
+Especificaciones:
+
+Correr el script pgamerbd en phpmyadmin
+
+------------------------------------------------
+
+Gmail:
+
+Correo Administrador: correopruebaAB01@gmail.com
+
+Contraseña: correoprueba123
+
+-------------------------------------------------
+
+Gmail:
+
+Correo Cliente: correoprueba2@gmail.com
+
+Contraseña: correoprueba123
+
+-------------------------------------------------
+
+Cuenta:
+
+SuperUsuario: admin
+
+Contraseña: contraseña123
+
+-------------------------------------------------
+
+Cuenta:
+
+Usuario Administrador: Administrador
+
+Contraseña: contraseña123
+
+-------------------------------------------------
+
+Cuenta:
+
+Usuario Cliente: Cliente
+
+Contraseña: contraseña123

@@ -22,35 +22,43 @@
         <nav id="nav">
             <div class="xlogo">
                 <a href="{% url 'inicio' %}" class="xhome-link">
-                    <img src="{% static 'img/xlogo.png' %}" alt="logo">
+                    <img src="{% static 'img/imgLogo.png' %}" alt="logo">
                 </a>
-                <h1>Empresa</h1>
+                <h1>PGamersWeb</h1>
             </div>
 
             <div class="xbar" id="xbar">
                 <a href="{% url 'contacto' %}" class="xbar-item">
-                    <div class="xbar-box">Contacto</div>
+                        <div class="xbar-box">Contacto</div>
                 </a>
-
-                <a href="{% url 'agregar_pedido' %}" class="xbar-item">
-                    <div class="xbar-box">Pedidos</div>
-                </a>
-
-                <a href="{% url 'listar_pedido' %}" class="xbar-item">
-                    <div class="xbar-box">Listado</div>
-                </a>
-                <a href="{% url 'registro' %}" class="xbar-item">
-                    <div class="xbar-box">Registro</div>
-                </a>
-
                 {% if user.is_authenticated %}
+                    {% if perms.PGamersApp.add_producto %}
+                        <a href="{% url 'productos' %}" class="xbar-item">
+                        <div class="xbar-box">producto</div>
+                        </a>
+                    {% endif %}
+
+                    {% if perms.PGamersApp.add_pedido %}
+                        <a href="{% url 'agregar_pedido' %}" class="xbar-item">
+                            <div class="xbar-box">Pedidos</div>
+                        </a>
+                    {% endif %}
+
+                    {% if perms.PGamersApp.view_pedido %}
+                    <a href="{% url 'listar_pedido' %}" class="xbar-item">
+                        <div class="xbar-box">Listado</div>
+                    </a>
+                    {% endif %}
                     <a href="{% url 'logout' %}" class="xbar-item">
                         <div class="xbar-box">Logout</div>
                     </a>
-                    <a href="#}" class="xbar-item">
+                    <a href="#" class="xbar-item">
                     <div class="xbar-box">@{{ user.username }}</div>
                     </a>
                 {% else %}
+                    <a href="{% url 'registro' %}" class="xbar-item">
+                        <div class="xbar-box">Registro</div>
+                    </a>
                     <a href="{% url 'login' %}" class="xbar-item">
                         <div class="xbar-box">Login</div>
                     </a>
@@ -98,6 +106,13 @@
                         "title" : "Felicitaciones",
                         "text" : "{{m}}",
                         "icon" : "success"
+                    })
+               </script>
+               <script>
+                    Swal.sul({
+                        "title" : "Algo ha salido mal",
+                        "text" : "{{m}}",
+                        "icon" : "warning"
                     })
                </script>
             {% endfor %}

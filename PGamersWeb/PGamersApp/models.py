@@ -1,6 +1,10 @@
+# //----- IMPORTS -----// 
+
 from django.db import models
 
-# Create your models here.
+# //----- CLASES -----// 
+
+# //----- CLASE MARCA -----// 
 
 class Marca(models.Model):
     nombre = models.CharField(max_length=50)
@@ -8,17 +12,19 @@ class Marca(models.Model):
     def __str__(self):
         return self.nombre
 
+# //----- CLASE PRODUCTO -----// 
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
-    marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     precio = models.IntegerField()
     descripcion = models.TextField()
-    fec_fabricacion = models.DateField()
     imagen = models.ImageField(upload_to="productos", null=True)
 
     def __str__(self):
         return self.nombre
 
+# //----- CLASE CONTACTO -----// 
 
 class Contacto(models.Model):
     opciones_consultas = [
@@ -36,14 +42,17 @@ class Contacto(models.Model):
     def __str__(self):
         return self.nombre
 
+# //----- CLASE PEDIDO -----// 
+
 class Pedido(models.Model):
     rut = models.CharField(max_length=12)
     nombres = models.CharField(max_length=100)
     a_paterno = models.CharField(max_length=50)
     a_materno = models.CharField(max_length=50)
     correo = models.EmailField()
-    producto = models.ForeignKey(Producto, on_delete=models.PROTECT)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
 
     def __str__(self):
-        return self.id
+        return self.producto
 
