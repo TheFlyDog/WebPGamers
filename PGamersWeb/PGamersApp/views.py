@@ -43,7 +43,6 @@ def contacto(request):
 # //----- AGREGAR PEDIDO VISTA -----// 
 
 @login_required
-@permission_required('PGamersApp.add_pedido')
 def agregar_pedido(request):
     data = {
         'form' : PedidoForm()
@@ -63,7 +62,6 @@ def agregar_pedido(request):
 # //----- LISTAR PEDIDO VISTA -----// 
 
 @login_required
-@permission_required('PGamersApp.view_pedido')
 def listar_pedidos(request):
     pedidos = Pedido.objects.all()
     #se recogue el numero de paginas desde la url
@@ -86,7 +84,6 @@ def listar_pedidos(request):
 # //----- MODIFICAR PEDIDO VISTA -----// 
 
 @login_required
-@permission_required('PGamersApp.change_pedido')
 def modificar_pedido(request, id):
     
     #busca el id obtenido en la url
@@ -110,7 +107,6 @@ def modificar_pedido(request, id):
 # //----- ELIMINAR PEDIDO VISTA -----// 
 
 @login_required
-@permission_required('PGamersApp.delete_pedido')
 def eliminar_pedido(request, id):
     pedido = get_object_or_404(Pedido, id=id)
     pedido.delete()

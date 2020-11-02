@@ -63,12 +63,8 @@
                     <td>{{ p.producto | title }}</td>
                     <td>{{ p.cantidad | intcomma }}</td>
                     <td>
-                        {% if perms.PGamersApp.change_pedido%}
                         <a href="{% url 'modificar_pedido' p.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        {% endif %}
-                        {% if perms.PGamersApp.delete_pedido%}
                         <a href="#" onclick="EliminarPedido({{ p.id }})"  class="btn btn-danger btn-sm">Eliminar</a>
-                        {% endif %}
                     </td>
                 </tr>
 

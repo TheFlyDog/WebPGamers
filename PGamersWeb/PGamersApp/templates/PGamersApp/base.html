@@ -37,18 +37,12 @@
                         <div class="xbar-box">producto</div>
                         </a>
                     {% endif %}
-
-                    {% if perms.PGamersApp.add_pedido %}
-                        <a href="{% url 'agregar_pedido' %}" class="xbar-item">
-                            <div class="xbar-box">Pedidos</div>
-                        </a>
-                    {% endif %}
-
-                    {% if perms.PGamersApp.view_pedido %}
+                    <a href="{% url 'agregar_pedido' %}" class="xbar-item">
+                        <div class="xbar-box">Pedidos</div>
+                    </a>
                     <a href="{% url 'listar_pedido' %}" class="xbar-item">
                         <div class="xbar-box">Listado</div>
                     </a>
-                    {% endif %}
                     <a href="{% url 'logout' %}" class="xbar-item">
                         <div class="xbar-box">Logout</div>
                     </a>
