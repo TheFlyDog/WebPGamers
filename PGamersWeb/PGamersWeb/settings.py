@@ -28,7 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 465
+    EMAIL_USE_SSL = True
+    EMAIL_HOST_USER = 'correopruebadjango@gmail.com'
+    EMAIL_HOST_PASSWORD = 'correoprueba123'
+    MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
@@ -47,6 +54,7 @@ INSTALLED_APPS = [
     'colorfield',
     'django.contrib.humanize', #define paquetes con formatos para precios
     'crispy_forms',
+    'django_filters',# pip install django-filter https://django-filter.readthedocs.org/en/latest/ 
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -142,15 +150,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-#EMAIL CONFIGURACION
 
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nicoalexander993@gmail.com'
-EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-ACCOUNT_EMAIL_VERIFICATION = 'none'

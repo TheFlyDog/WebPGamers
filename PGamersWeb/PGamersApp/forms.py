@@ -26,12 +26,15 @@ class PedidoForm(forms.ModelForm):
         fields = ['rut','nombres', 'a_paterno', 'a_materno', 'correo', 'producto','cantidad']
 
         widgets = {
+            'rut': forms.TextInput(
+                attrs={'oninput':'checkRut(rut)',
+                'placeholder': 'EJ: 204313432 (sin puntos ni guiones'}
+            ),
+
             'correo': forms.EmailInput(
                 attrs={'placeholder': 'micorreo@gmail.com',
-                        'pattern': ''}
+                'pattern': '[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}'}
             ),
-            
-            'rut': forms.TextInput(attrs={"oninput":"checkRut(this)"}),
         }
 
 # //----- FORMULARIO CREACION DE USUARIO -----// 

@@ -65,6 +65,7 @@ def agregar_pedido(request):
 def listar_pedidos(request):
     pedidos = Pedido.objects.all()
     #se recogue el numero de paginas desde la url
+
     page = request.GET.get('page', 1)
 
     #se usa try por posibles errores y caida del sistema
