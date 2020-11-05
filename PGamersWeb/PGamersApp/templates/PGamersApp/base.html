@@ -32,6 +32,11 @@
                         <div class="xbar-box">Contacto</div>
                 </a>
                 {% if user.is_authenticated %} <!-- Muestra opciones del menu cuando el usuario esta autenticado-->
+                    {% if perms.PGamersApp.add_producto %}
+                        <a href="{% url 'productos' %}" class="xbar-item">
+                        <div class="xbar-box">producto</div>
+                        </a>
+                    {% endif %}
                     <a href="{% url 'agregar_pedido' %}" class="xbar-item">
                         <div class="xbar-box">Pedidos</div>
                     </a>

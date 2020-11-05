@@ -67,3 +67,11 @@ class MarcaForm(forms.ModelForm):
     class Meta:
         model = Marca
         fields = '__all__'
+
+# //----- FORMULARIO PRODUCTO -----// 
+
+class ProductoForm(forms.ModelForm):
+
+    class Meta:
+        model = Producto
+        fields = '__all__'
