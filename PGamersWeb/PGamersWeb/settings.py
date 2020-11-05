@@ -53,11 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'PGamersApp', #Aplicacion del proyecto
     'colorfield', #estilos de color para el panel del admin
-    'django.contrib.humanize', #define paquetes con formatos para precios
-    'crispy_forms', #estilos para los formularios
+    'django.contrib.humanize', #define paquetes para trabajar con formatos mas humanos.
+    'crispy_forms', #estilos bootstrap para los formularios
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #Uso de bootstrap 4
 
 X_FRAME_OPTIONS='SAMEORIGIN'
 
