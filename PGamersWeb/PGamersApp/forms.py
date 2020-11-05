@@ -23,7 +23,7 @@ class PedidoForm(forms.ModelForm):
     
     class Meta:
         model = Pedido
-        fields = ['rut','nombres', 'a_paterno', 'a_materno', 'correo', 'producto','cantidad']
+        fields = ['rut','nombres', 'apellido', 'correo', 'producto','cantidad']
 
         widgets = {
             'rut': forms.TextInput(
@@ -54,13 +54,12 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ['username', 'first_name', 'last_name','email','password1','password2']
 
-# //----- FORMULARIO PRODUCTO -----// 
-
-class ProductoForm(forms.ModelForm):
-
-    class Meta:
-        model = Producto
-        fields = '__all__'
+        widgets = {
+            'correo': forms.EmailInput(
+                attrs={'placeholder': 'micorreo@gmail.com',
+                'pattern': '[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}'}
+            ),
+        }
 
 # //----- FORMULARIO MARCA -----// 
 

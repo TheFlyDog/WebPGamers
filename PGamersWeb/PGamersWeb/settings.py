@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Configuracion SMTP
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
@@ -43,18 +44,17 @@ LOGOUT_REDIRECT_URL = "/"
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_interface',
+    'admin_interface', #Configuracion de la interfaz del admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'PGamersApp',
-    'colorfield',
+    'PGamersApp', #Aplicacion del proyecto
+    'colorfield', #estilos de color para el panel del admin
     'django.contrib.humanize', #define paquetes con formatos para precios
-    'crispy_forms',
-    'django_filters',# pip install django-filter https://django-filter.readthedocs.org/en/latest/ 
+    'crispy_forms', #estilos para los formularios
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

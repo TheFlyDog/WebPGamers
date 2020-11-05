@@ -18,7 +18,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     precio = models.IntegerField()
-    descripcion = models.TextField()
+    descripcion = models.TextField() 
     imagen = models.ImageField(upload_to="productos", null=True)
 
     def __str__(self):
@@ -47,12 +47,14 @@ class Contacto(models.Model):
 class Pedido(models.Model):
     rut = models.CharField(max_length=12)
     nombres = models.CharField(max_length=100)
-    a_paterno = models.CharField(max_length=50)
-    a_materno = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
     correo = models.EmailField()
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
 
+    def total(self):
+        return self.producto.precio * self.cantidad
+        
     def __str__(self):
         return self.producto
 

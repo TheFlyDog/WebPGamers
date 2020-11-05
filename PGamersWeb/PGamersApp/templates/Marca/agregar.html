@@ -18,9 +18,9 @@
                 <div class="card-body">
                     <h2>Nuevo Producto</h2>
                     <hr>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form | crispy }}
+                    <form action="" method="POST" enctype="multipart/form-data"> <!-- Crear formulario con metodo POST -->
+                        {% csrf_token %} <!-- Aplicar csrf_token para seguridad de los datos -->
+                        {{ form | crispy }} <!-- Carga el formulario generado por django y le aplica estilos de crispy-form -->
 
                         <hr>
                         <div class="d-flex justify-content-end">
@@ -29,7 +29,7 @@
                             <input type="submit" value="Guardar" class="btn btn-primary">
                         </div>
                     </form>
-                    {{ mensaje }}
+                    {{ mensaje }} <!-- Cargar mensaje de exito cuando se registre un pedido -->
                 </div>
             </div>
         </div>

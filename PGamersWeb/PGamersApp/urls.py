@@ -11,14 +11,6 @@ from django.contrib.auth.views import LoginView, LogoutView #importar vistas del
 
 urlpatterns = [
     path('', inicio, name="inicio"),
-    path('productos/', productos, name="productos"),
-    path('agregar-producto/', agregar_producto, name="agregar_producto"),
-    path('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
-    path('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
-    path('marcas/', marcas, name="marcas"),
-    path('agregar-marca/', agregar_marca, name="agregar_marca"),
-    path('modificar-marca/<id>/', modificar_marca, name="modificar_marca"),
-    path('eliminar-marca/<id>/', eliminar_marca, name="eliminar_marca"),
     path('contacto/', contacto, name="contacto"),
     path('agregar-pedido/', agregar_pedido, name="agregar_pedido"),
     path('listar-pedido/', listar_pedidos, name="listar_pedido"),

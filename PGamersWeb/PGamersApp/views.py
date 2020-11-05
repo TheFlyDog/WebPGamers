@@ -48,6 +48,7 @@ def agregar_pedido(request):
         'form' : PedidoForm()
     }
 
+
     if request.method == 'POST':
         formulario = PedidoForm(data=request.POST)
         if formulario.is_valid():
@@ -55,7 +56,6 @@ def agregar_pedido(request):
             messages.success(request, 'Pedido Registrado')
         else:
             data["form"] = formulario
-
 
     return render(request, 'Pedido/agregar.html', data)
 
@@ -132,157 +132,3 @@ def registro(request):
             return redirect(to="inicio")
         data['form'] = formulario
     return render(request, 'registration/registro.html', data)
-
-# //----- PRODUCTOS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.view_producto')
-def productos(request):
-    productos = Producto.objects.all()
-    #se recogue el numero de paginas desde la url
-    page = request.GET.get('page', 1)
-
-    #se usa try por posibles errores y caida del sistema
-    try:
-        paginator = Paginator(productos, 5) # cantidad de paginas que se requieren por pagina
-        productos = paginator.page(page) # entrega de la pagina
-    except:
-        raise Http404
-
-    data = {
-        'entity' : productos,
-        'paginator': paginator
-    }
-
-    return render(request, 'Producto/productos.html', data)
-
-# //----- AGREGAR PRODUCTOS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.add_producto')
-def agregar_producto(request):
-    data = {
-        'form' : ProductoForm()
-    }
-
-    if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, files=request.FILES)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, 'Producto Agregado')
-        else:
-            messages.warning(request, 'Datos mal ingresados')
-            data["form"] = formulario
-
-    return render(request, 'Producto/agregar.html', data)
-
-# //----- MODIFICAR PRODUCTOS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.change_producto')
-def modificar_producto(request, id):
-    
-    #busca el id obtenido en la url
-    producto = get_object_or_404(Producto, id=id)
-
-    data = {
-        'form' : ProductoForm(instance=producto)
-    }
-
-    if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, "Modificado Correctamente")
-            return redirect(to="productos")
-        else:
-            data["form"] = formulario
-
-    return render(request, 'Producto/modificar.html', data)
-
-# //----- ELIMINAR PRODUCTOS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.delete_producto')
-def eliminar_producto(request, id):
-    producto = get_object_or_404(Producto, id=id)
-    producto.delete()
-    messages.success(request, "Eliminado correctamente")
-    return redirect(to='productos')
-
-# //----- MARCAS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.view_marca')
-def marcas(request):
-    marcas = Marca.objects.all()
-    #se recogue el numero de paginas desde la url
-    page = request.GET.get('page', 1)
-
-    #se usa try por posibles errores y caida del sistema
-    try:
-        paginator = Paginator(marcas, 5) # cantidad de paginas que se requieren por pagina
-        marcas = paginator.page(page) # entrega de la pagina
-    except:
-        raise Http404
-
-    data = {
-        'entity' : marcas,
-        'paginator': paginator
-    }
-
-    return render(request, 'Marca/marcas.html', data)
-
-# //----- AGREGAR MARCAS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.add_marca')
-def agregar_marca(request):
-    data = {
-        'form' : MarcaForm()
-    }
-
-    if request.method == 'POST':
-        formulario = MarcaForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, 'Marca Agregada')
-        else:
-            data["form"] = formulario
-
-
-    return render(request, 'Marca/agregar.html', data)
-
-# //----- MODIFICAR MARCAS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.change_marca')
-def modificar_marca(request, id):
-    
-    #busca el id obtenido en la url
-    marca = get_object_or_404(Marca, id=id)
-
-    data = {
-        'form' : MarcaForm(instance=marca)
-    }
-
-    if request.method == 'POST':
-        formulario = MarcaForm(data=request.POST, instance=marca)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, "Modificado Correctamente")
-            return redirect(to="marcas")
-        else:
-            data["form"] = formulario
-
-    return render(request, 'Marca/modificar.html', data)
-
-# //----- ELIMINAR MARCAS VISTA -----// 
-
-@login_required
-@permission_required('PGamersApp.delete_marca')
-def eliminar_marca(request, id):
-    marca = get_object_or_404(Marca, id=id)
-    marca.delete()
-    messages.success(request, "Eliminado correctamente")
-    return redirect(to='marcas')

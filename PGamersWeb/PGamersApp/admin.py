@@ -14,7 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_per_page = 5
 
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ['rut','correo','producto','cantidad']
+    list_display = ['rut','correo','producto','cantidad','total']
     search_fields = ['producto']
     list_filter = ['rut','correo','producto']
     list_per_page = 5

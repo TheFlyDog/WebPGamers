@@ -13,8 +13,9 @@ agregadas por el plguin flexsliderjs */
 .slides,
 .slides li,
 .slides li img {
+    padding-top: 23px;
     width: 100%;
-    max-height: 100vh;
+    max-height: 70vh;
 }
 
 .slides li {
@@ -137,6 +138,11 @@ agregadas por el plguin flexsliderjs */
     }
     .caption h2 {
         font-size: 2em;
+    }
+    .slides,
+    .slides li,
+    .slides li img {
+        max-height: 50vh;
     }
 }
 

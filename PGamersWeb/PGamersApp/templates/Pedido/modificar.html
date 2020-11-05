@@ -1,8 +1,8 @@
-{% extends 'PGamersApp/base.html' %}
+{% extends 'PGamersApp/base.html' %} <!-- Herencia de la pagina base -->
 
-{% block content %}
+{% block content %} <!-- Block del contenido de la pagina -->
 
-    {% load crispy_forms_tags %}
+    {% load crispy_forms_tags %} <!-- Cargar crispy-from -->
     
     <br>
     <br>
@@ -14,9 +14,9 @@
                 <div class="card-body">
                     <h2>Nuevo Producto</h2>
                     <hr>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form | crispy }}
+                    <form action="" method="POST" enctype="multipart/form-data"> <!-- Crear formulario con metodo POST -->
+                        {% csrf_token %}  <!-- Aplicar csrf_token para seguridad de los datos -->
+                        {{ form | crispy }}  <!-- Carga el formulario generado por django y le aplica estilos de crispy-form -->
 
                         <hr>
                         <div class="d-flex justify-content-end">
@@ -24,7 +24,7 @@
                             &nbsp;
                             <input type="submit" value="Modificar" class="btn btn-primary">
                         </div>
-                        {{m}}
+                        {{m}} <!-- Cargar mensaje de exito cuando se registre un pedido -->
                     </form>
                 </div>
             </div>
