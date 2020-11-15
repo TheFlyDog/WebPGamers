@@ -294,10 +294,6 @@ footer p {
         height: 600px;
         margin: auto;
     }
-    /* Slider */
-    .carousel-item img {
-        height: 500px;
-    }
 }
 
 @media(max-width: 500px) {

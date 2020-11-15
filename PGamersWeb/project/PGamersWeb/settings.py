@@ -43,11 +43,17 @@ INSTALLED_APPS = [
     'colorfield', #estilos de color para el panel del admin
     'django.contrib.humanize', #define paquetes para trabajar con formatos mas humanos.
     'crispy_forms', #estilos bootstrap para los formularios
+    'social_django', #Agregar app social
 ]
 
 #REDIRECT URL
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+#Keys Facebook developer
+SOCIAL_AUTH_FACEBOOK_KEY = '368159874638180'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'f5a091daa56279d143e4cac8b5e7cbf2'
+
 
 #Uso de bootstrap 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', #Middleware Facebook
+
 ]
 
 ROOT_URLCONF = 'PGamersWeb.urls'
@@ -76,6 +84,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', #context processors backend Facebook
+                'social_django.context_processors.login_redirect', #context processors login redirect Facebook
+
+
             ],
         },
     },
@@ -149,4 +161,11 @@ if DEBUG:
     EMAIL_HOST_USER = 'correopruebadjango@gmail.com'
     EMAIL_HOST_PASSWORD = 'correoprueba123'
     MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
+#Autenticacion con Facebook
+AUTHENTICATION_BACKENDS = (
+'social_core.backends.facebook.FacebookOAuth2',
+'django.contrib.auth.backends.ModelBackend',
+)
+
 
