@@ -8,8 +8,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PGamersApp.urls')),
     path('accounts/', include('django.contrib.auth.urls')), #Urls de autenticacion de la cuenta de usuario
-    path('oauth/', include('social_django.urls', namespace='social')) #Urls de red social django
+    path('oauth/', include('social_django.urls', namespace='social')), #Urls de red social django
+    path('', include('pwa.urls')),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
