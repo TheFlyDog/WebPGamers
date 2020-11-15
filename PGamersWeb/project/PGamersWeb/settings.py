@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize', #define paquetes para trabajar con formatos mas humanos.
     'crispy_forms', #estilos bootstrap para los formularios
     'social_django', #Agregar app social
+    'rest_framework',#Agregar app rest_framework
+    'pwa' #agregar progressive web app
 ]
 
 #REDIRECT URL
@@ -168,4 +170,5 @@ AUTHENTICATION_BACKENDS = (
 'django.contrib.auth.backends.ModelBackend',
 )
 
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
 

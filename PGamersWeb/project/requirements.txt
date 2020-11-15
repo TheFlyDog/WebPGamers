@@ -4,3 +4,5 @@ django-admin-interface
 django-crispy-forms
 python-decouple
 social-auth-app-django
+djangorestframework
+django-progressive-web-app

@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.contrib.auth import authenticate, login
+#//----- IMPORTS REST_FRAMEWORKS -----//
+from rest_framework import viewsets
+from .serializer import *
 
 # //----- VISTAS -----// 
 
@@ -286,3 +289,15 @@ def eliminar_marca(request, id):
     marca.delete()
     messages.success(request, "Eliminado correctamente")
     return redirect(to='marcas')
+
+
+# //----- VISTAS REST_FRAMEWORK ------//
+
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all() #Consulta que trae todos los productos
+    serializer_class = ProductoSerializers #Pasa la informacion a formato JSON
+
+class MarcaViewSet(viewsets.ModelViewSet):
+    queryset = Marca.objects.all() #Consulta que trae todos los productos
+    serializer_class = MarcaSerializers #Pasa la informacion a formato JSON
