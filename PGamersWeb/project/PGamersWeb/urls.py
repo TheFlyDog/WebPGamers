@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.authtoken import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -10,6 +11,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), #Urls de autenticacion de la cuenta de usuario
     path('oauth/', include('social_django.urls', namespace='social')), #Urls de red social django
     path('', include('pwa.urls')),
+    path('',include('Api.urls')),
+    path('api_generate_token/', views.obtain_auth_token),
 ]
 
 

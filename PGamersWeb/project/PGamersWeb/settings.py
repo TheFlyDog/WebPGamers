@@ -45,8 +45,16 @@ INSTALLED_APPS = [
     'crispy_forms', #estilos bootstrap para los formularios
     'social_django', #Agregar app social
     'rest_framework',#Agregar app rest_framework
-    'pwa' #agregar progressive web app
+    'rest_framework.authtoken',
+    'pwa', #agregar progressive web app
+    'Api',
 ]
+
+#PAGINACION API
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
+}
 
 #REDIRECT URL
 LOGIN_REDIRECT_URL = "/"
