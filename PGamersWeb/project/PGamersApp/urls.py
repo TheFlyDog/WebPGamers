@@ -6,11 +6,7 @@ from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView #importar vistas del login y logout
-from rest_framework import routers #Ruta API
 
-router = routers.DefaultRouter() #Rutas de la api por defecto
-router.register('productos', ProductoViewSet) #Registra la vista de los productos
-router.register('marcas', MarcaViewSet) #Registra la vista de las marcas
 
 
 # //----- URLS -----// 
@@ -33,5 +29,4 @@ urlpatterns = [
     path('registro/', registro, name="registro"),
     path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
 	path('logout/', LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
-    path('api/', include(router.urls)), #Incluye las urls de la api
 ] 
