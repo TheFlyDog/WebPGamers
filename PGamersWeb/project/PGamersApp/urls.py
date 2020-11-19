@@ -7,8 +7,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView #importar vistas del login y logout
 
-
-
 # //----- URLS -----// 
 
 urlpatterns = [

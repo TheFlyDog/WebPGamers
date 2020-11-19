@@ -3,9 +3,10 @@ from .views import *
 from rest_framework import routers #Ruta API
 
 router = routers.DefaultRouter() #Rutas de la api por defecto
-router.register('productos', ProductoViewSet) #Registra la vista de los productos
-router.register('marcas', MarcaViewSet) #Registra la vista de las marcas
+router.register('pedidos', PedidoViewSet) #Registra la vista de los productos
+router.register('users', UserViewSet)
+router.register('groups', GroupViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)), #Incluye las urls de la api
+    path('', include(router.urls)), #Incluye las urls de la api
 ]

@@ -37,16 +37,15 @@
     <br>
     <br>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="border: 0.2px solid black;">
             <h2>Listado de productos</h2>
             <hr>
-            <table class="table table-striped table-hover table-responsive-sm">
+            <table class="table table-striped table-hover table-responsive-xl">
                 <tr>
                     <th>Nombre</th>
                     <th>Marca</th>
                     <th>Precio</th>
                     <th>Descripcion</th>
-                    <th>Fecha Fabricacion</th>
                     <th>Opciones</th>
                 </tr>
 
@@ -57,7 +56,6 @@
                     <td>{{ p.marca | title }}</td>
                     <td>${{ p.precio | intcomma }}</td>
                     <td>{{ p.descripcion | title }}</td>
-                    <td>{{ p.fec_fabricacion| title }}</td>
                     <td>
                         {% if perms.PGamersApp.change_producto%}
                         <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm">Modificar</a>

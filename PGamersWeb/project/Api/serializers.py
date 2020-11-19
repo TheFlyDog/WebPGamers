@@ -1,12 +1,19 @@
 from rest_framework import serializers
 from PGamersApp.models import *
+from django.contrib.auth.models import User, Group
 
-class ProductoSerializers(serializers.ModelSerializer):
+class PedidoSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Producto
+        model = Pedido
         fields = '__all__'
 
-class MarcaSerializers(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Marca
-        fields = '__all__'
+        model = User
+        fields = ['url', 'username', 'email', 'groups']
+
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Group
+        fields = ['url', 'name']
