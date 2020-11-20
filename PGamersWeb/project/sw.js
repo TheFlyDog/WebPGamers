@@ -1,13 +1,8 @@
 var CACHE_NAME = 'my-site-cache-v1'; /* Nombre del Cache*/
 var urlsToCache = [ /* URLS que se dejaran en el cache */
     '/',
-    'contacto/',
-    'login/',
-    'logout/',
-    'PGamersApp/static/css/estilos.css',
-    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
-    'productos/',
-
+    '/static/img/',
+    '/static/css/estilos.css/'
 ];
 
 self.addEventListener('install', function(event) { /* Instalacion */
@@ -19,6 +14,10 @@ self.addEventListener('install', function(event) { /* Instalacion */
             return cache.addAll(urlsToCache); /* se agregan todas las urls definidas al cache de la pagina web  */
         })
     );
+});
+
+self.addEventListener('activate', e => {
+    self.clients.claim();
 });
 
 self.addEventListener('fetch', function(event) { /* peticion */

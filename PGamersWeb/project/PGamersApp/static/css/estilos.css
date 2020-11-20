@@ -191,6 +191,15 @@ footer p {
 }
 
 
+/* API MAP */
+
+.row #map {
+    width: 100%;
+    height: 500px;
+    border: 2px solid black;
+}
+
+
 /* Responsive */
 
 @media(max-width: 1000px) {

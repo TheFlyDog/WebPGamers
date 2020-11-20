@@ -1,4 +1,7 @@
 {% load static %}
+ <!-- SERVICEWORED-->
+{% load pwa %}
+{% progressive_web_app_meta %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +9,6 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- SERVICEWORED-->
-    {% load pwa %}
-    {% progressive_web_app_meta %}
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
@@ -19,6 +18,30 @@
 
 	<!-- Barra Navegacion Bootstrap -->
 	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+
+    <!-- Notificaciones PUSH -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>  
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBmZOmhb2BvpbAUxmO591U9Qg8jYV8Hg30",
+        authDomain: "productgamers99.firebaseapp.com",
+        databaseURL: "https://productgamers99.firebaseio.com",
+        projectId: "productgamers99",
+        storageBucket: "productgamers99.appspot.com",
+        messagingSenderId: "11495795083",
+        appId: "1:11495795083:web:e943c54c947158fc6aa78e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
         <!-- Barra Navegacion -->

@@ -2,6 +2,17 @@
 
 {% load static %}
 
+{% block js %}
+	<!-- API Map -->
+
+    <script src="{% static 'js/map.js'%}"></script>
+	<script defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC093h1FA4z0GZY-sw0-qjxFKfU-zjPr-k&callback=iniciarMap">
+	</script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+{% endblock %}
+
 {% block content%}
 
 	{% load humanize %}
@@ -86,6 +97,21 @@
 		        <img src="{% static 'img/Contacto.jpg' %}">
 		      </div>
 		    </div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+		      <div class="col-md-7 order-md-2">
+		        <h2 class="featurette-heading">Ubicacion</h2>
+					<p class="lead">Si necesita realizar algun reclamo, consulta, comentario presencialmente o comprar algun producto, puede
+					encontrarnos en esta direccion</p>
+		      </div>
+		      <div class="col-md-5 order-md-1">
+		        <div id="map"></div>
+		      </div>
+		    </div>
+
+			<hr class="featurette-divider">
 	    </div>
 
 {% endblock %}
