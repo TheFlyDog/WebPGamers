@@ -179,4 +179,3 @@ AUTHENTICATION_BACKENDS = (
 )
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'sw.js')
-

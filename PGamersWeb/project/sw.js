@@ -1,8 +1,12 @@
 var CACHE_NAME = 'my-site-cache-v1'; /* Nombre del Cache*/
 var urlsToCache = [ /* URLS que se dejaran en el cache */
     '/',
-    '/static/img/',
-    '/static/css/estilos.css/'
+    '/static/css/estilos.css',
+    '/static/img/imagen_slider_1.png',
+    '/static/img/imagen_slider_2.png',
+    '/static/img/imagen_slider_3.png',
+    '/static/img/Logo.png',
+    '/static/img/PortadaContacto.jpg',
 ];
 
 self.addEventListener('install', function(event) { /* Instalacion */
@@ -16,8 +20,18 @@ self.addEventListener('install', function(event) { /* Instalacion */
     );
 });
 
-self.addEventListener('activate', e => {
-    self.clients.claim();
+// Clear cache on activate
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames
+                .filter(cacheName => (cacheName.startsWith("django-pwa-")))
+                .filter(cacheName => (cacheName !== CACHE_NAME))
+                .map(cacheName => caches.delete(cacheName))
+            );
+        })
+    );
 });
 
 self.addEventListener('fetch', function(event) { /* peticion */

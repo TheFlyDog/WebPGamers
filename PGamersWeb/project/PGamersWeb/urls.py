@@ -7,9 +7,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('pwa.urls')),
     path('accounts/', include('django.contrib.auth.urls')), #Urls de autenticacion de la cuenta de usuario
     path('oauth/', include('social_django.urls', namespace='social')), #Urls de red social django
-    path('', include('pwa.urls')),
     path('api/',include('Api.urls')),
     path('api_generate_token/', views.obtain_auth_token),
     path('', include('PGamersApp.urls')),
