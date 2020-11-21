@@ -10,12 +10,15 @@
 
 # Intrucciones: 
 
-# 1) en el cmd ejecutar comando migrate para migrar los datos a la base de datos
+# 1) Desde la raiz del proyecto, se debe abrir una consola de comandos y ejecutar el siguiente codigo "pip install -r requirements.txt".
 
-# 2) en el cmd ejecutar comando py manage.py createsuperuser para crear un super usuario
+# 2) Se debe ejecutar el codigo "py manage.py migrate".
 
-# 3) en el cmd ejecutar comando pip install -r requirements.txt
+# 3) Se ejecuta el codigo "py manage.py makemigrations"
 
-# 4) los productos se agregan o en la pag producto (solo como superusuario o con un usuario con permisos especificos) en el administrador, luego estos se muestran en la pagina inicio.
+# 4) Se crea un superusuario con el codigo "py manage.py createsuperuser"
 
-# 5) para recuperar contraseña debe colocar en la parte de configuracion SMTP el correo y la contraseña de este.
+# Extra
+
+# 1) para recuperar contraseña debe colocar en la parte de configuracion SMTP el correo y la contraseña del correo que quiera utilizar
+
