@@ -1,0 +1,43 @@
+{% extends 'PGamersApp/base.html' %} <!-- Herencia de la pagina base -->
+
+{% block content %} <!-- Block del contenido de la pagina -->
+
+    {% load crispy_forms_tags %} <!-- Cargar crispy-from -->
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Nuevo Producto</h2>
+                    <hr>
+                    <form action="" method="POST" enctype="multipart/form-data"> <!-- Crear formulario con metodo POST -->
+                        {% csrf_token %}  <!-- Aplicar csrf_token para seguridad de los datos -->
+                        {{ form | crispy }}  <!-- Carga el formulario generado por django y le aplica estilos de crispy-form -->
+
+                        <hr>
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url 'productos' %}" class="btn btn-secondary">Cancelar</a>
+                            &nbsp;
+                            <input type="submit" value="Modificar" class="btn btn-primary">
+                        </div>
+                        {{m}} <!-- Cargar mensaje de exito cuando se registre un pedido -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+{% endblock %}

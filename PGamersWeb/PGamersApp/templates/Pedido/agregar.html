@@ -1,0 +1,49 @@
+{% extends 'PGamersApp/base.html' %} <!-- Herencia de la pagina base -->
+
+{% load static %} <!-- Cargar carpetas estaticas -->
+
+{% block js %} <!-- Block para archivos JavaScript-->
+
+    <script src="{% static 'js/validaRut.js' %}"></script>
+
+{% endblock %}
+
+{% block content %} <!-- Block del contenido de la pagina -->
+
+    {% load crispy_forms_tags %} <!-- Cargar crispy-from -->
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="contenedor-form"
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Nuevo Producto</h2>
+                        <hr>
+                        <form action="" method="POST" enctype="multipart/form-data"> <!-- Crear formulario con metodo POST -->
+                            {% csrf_token %}<!-- Aplicar csrf_token para seguridad de los datos -->
+                            
+                            {{ form | crispy }} <!-- Carga el formulario generado por django y le aplica estilos de crispy-form -->
+
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <input type="reset" value="Volver" class="btn btn-secondary">
+                                &nbsp;
+                                <input type="submit" value="Guardar" class="btn btn-primary">
+                            </div>
+                        </form>
+                        {{ m }} <!-- Cargar mensaje de exito cuando se registre un pedido -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

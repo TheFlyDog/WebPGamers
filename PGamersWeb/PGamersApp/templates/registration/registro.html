@@ -1,0 +1,48 @@
+{% extends "PGamersApp/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class= "container">
+		<div class="row">
+			<div class="col-12 col-md-6 offset-md-3">
+				<div class="card" style="border: 0.2px solid black; padding: 20px;">
+					<div class="card-body">
+						<h2>Registro de usuario</h2>
+
+						<form action="" method="POST">
+
+							{% csrf_token %}
+							{{ form | crispy }}
+
+							<a href="{% url 'inicio' %}">Inicio</a> |
+                            <a href="{% url 'login' %}">Login</a>
+							<input type="submit" value="Registrar" class="btn btn-success float-right" style="width: 100%; margin-top: 20px;">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+{% endblock %}
