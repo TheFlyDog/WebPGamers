@@ -30,6 +30,8 @@
 
 # 1) para recuperar contraseña debe colocar en la parte de configuracion SMTP el correo y la contraseña del correo que quiera utilizar
 
+![Indicacion 5](https://user-images.githubusercontent.com/63991040/100382036-29d32e00-2ff9-11eb-8029-19b6a7c00668.png)
+
 # FACEBOOK
 
 # Se debe esperar una hora para poder utilizar la app de facebook creada.
