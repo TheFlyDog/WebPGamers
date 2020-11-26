@@ -24,6 +24,8 @@
 
 # 4) Se crea un superusuario con el codigo "py manage.py createsuperuser"
 
+![Indicacion 4](https://user-images.githubusercontent.com/63991040/100381743-65212d00-2ff8-11eb-83f9-558287a36397.png)
+
 # CORREO
 
 # 1) para recuperar contraseña debe colocar en la parte de configuracion SMTP el correo y la contraseña del correo que quiera utilizar
