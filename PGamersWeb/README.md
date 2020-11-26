@@ -12,9 +12,15 @@
 
 # 1) Desde la raiz del proyecto, se debe abrir una consola de comandos y ejecutar el siguiente codigo "pip install -r requirements.txt".
 
+![Indicacion 1](https://user-images.githubusercontent.com/63991040/100381335-8d5c5c00-2ff7-11eb-8841-282774c0d67e.png)
+
 # 2) Se debe ejecutar el codigo "py manage.py migrate".
 
+![Indicacion 2](https://user-images.githubusercontent.com/63991040/100381407-ba107380-2ff7-11eb-938e-35f6e2915c41.png)
+
 # 3) Se ejecuta el codigo "py manage.py makemigrations"
+
+![Indicacion 3](https://user-images.githubusercontent.com/63991040/100381448-c4cb0880-2ff7-11eb-9fec-3e81e4d9b0ca.png)
 
 # 4) Se crea un superusuario con el codigo "py manage.py createsuperuser"
 
